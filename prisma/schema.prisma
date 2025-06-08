@@ -1,6 +1,6 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
+  previewFeatures = ["typedSql"]
 }
 
 datasource db {
@@ -20,6 +20,7 @@ model Problem {
 model LeaderboardEntry {
   id         String   @id @default(cuid())
   userId     String
+  userName   String @unique
   problemId  String
   score      Int
   attempts   Int

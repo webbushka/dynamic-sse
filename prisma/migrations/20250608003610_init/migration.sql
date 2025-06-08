@@ -11,6 +11,7 @@ CREATE TABLE "Problem" (
 CREATE TABLE "LeaderboardEntry" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "userId" TEXT NOT NULL,
+    "userName" TEXT NOT NULL,
     "problemId" TEXT NOT NULL,
     "score" INTEGER NOT NULL,
     "attempts" INTEGER NOT NULL,
@@ -21,6 +22,9 @@ CREATE TABLE "LeaderboardEntry" (
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Problem_date_key" ON "Problem"("date");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "LeaderboardEntry_userName_key" ON "LeaderboardEntry"("userName");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "LeaderboardEntry_userId_problemId_key" ON "LeaderboardEntry"("userId", "problemId");

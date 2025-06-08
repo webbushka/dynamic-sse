@@ -1,5 +1,4 @@
 import { useDynamicContext } from '@dynamic-labs/sdk-react-core'
-import { parseJsonArray } from '~/lib/utils'
 
 export default function useGameResults() {
 	const { user } = useDynamicContext()

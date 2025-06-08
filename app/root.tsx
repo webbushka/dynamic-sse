@@ -8,9 +8,11 @@ import {
 	useLoaderData,
 } from 'react-router'
 
-import type { Route } from './+types/root'
+import { type Route } from './+types/root'
 import './app.css'
 import { DynamicContextProvider } from './components/dynamic-provider'
+import { getEnv } from './utils/env.server'
+import { useNonce } from './utils/nonce-provider'
 
 export const links: Route.LinksFunction = () => [
 	{ rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -27,11 +29,14 @@ export const links: Route.LinksFunction = () => [
 
 export function loader() {
 	return {
+		ENV: getEnv(),
 		environmentId: process.env.DYNAMIC_ENV_ID || '',
 	}
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
+	const data = useLoaderData<typeof loader | null>()
+	const nonce = useNonce()
 	return (
 		<html lang="en">
 			<head>
@@ -42,6 +47,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
 			</head>
 			<body>
 				{children}
+				<script
+					nonce={nonce}
+					dangerouslySetInnerHTML={{
+						__html: `window.ENV = ${JSON.stringify(data?.ENV)}`,
+					}}
+				/>
 				<ScrollRestoration />
 				<Scripts />
 			</body>

@@ -74,10 +74,11 @@ export function generateExpression() {
 		if (isValidEquation(expr)) {
 			const answer = evaluateEquation(expr)
 
-			if (answer !== null) {
+			// Ensure the number exists and is a whole number
+			if (answer !== null && Number.isInteger(answer)) {
 				return {
 					expression: expr,
-					answer: Math.round((answer + Number.EPSILON) * 1000) / 1000,
+					answer,
 				}
 			}
 		}
@@ -97,7 +98,7 @@ export function getFeedback(guess: string, target: string): CellFeedback[] {
 
 	for (let i = 0; i < guessChars.length; i++) {
 		if (guessChars[i] === targetChars[i]) {
-			feedback[i] = { char: guessChars[i], status: 'correct' }
+			feedback[i] = { char: guessChars[i] ?? '', status: 'correct' }
 			usedTargetIndices.add(i)
 			usedGuessIndices.add(i)
 		}
@@ -110,7 +111,7 @@ export function getFeedback(guess: string, target: string): CellFeedback[] {
 		let found = false
 		for (let j = 0; j < targetChars.length; j++) {
 			if (!usedTargetIndices.has(j) && guessChars[i] === targetChars[j]) {
-				feedback[i] = { char: guessChars[i], status: 'wrong-position' }
+				feedback[i] = { char: guessChars[i] ?? '', status: 'wrong-position' }
 				usedTargetIndices.add(j)
 				found = true
 				break
@@ -118,7 +119,7 @@ export function getFeedback(guess: string, target: string): CellFeedback[] {
 		}
 
 		if (!found) {
-			feedback[i] = { char: guessChars[i], status: 'not-used' }
+			feedback[i] = { char: guessChars[i] ?? '', status: 'not-used' }
 		}
 	}
 

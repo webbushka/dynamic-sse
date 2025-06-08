@@ -1,27 +1,17 @@
 {
-	"include": [
-		"**/*",
-		"**/.server/**/*",
-		"**/.client/**/*",
-		".react-router/types/**/*"
-	],
+	"include": ["**/*.ts", "**/*.tsx", ".react-router/types/**/*"],
+	"extends": ["@epic-web/config/typescript"],
 	"compilerOptions": {
-		"lib": ["DOM", "DOM.Iterable", "ES2022"],
-		"types": ["node", "vite/client"],
-		"target": "ES2022",
-		"module": "ES2022",
-		"moduleResolution": "bundler",
-		"jsx": "react-jsx",
+		// TODO: Probably should move this into epic-web/config
+		"types": ["@react-router/node", "vite/client"],
 		"rootDirs": [".", "./.react-router/types"],
-		"baseUrl": ".",
 		"paths": {
-			"~/*": ["./app/*"]
-		},
-		"esModuleInterop": true,
-		"verbatimModuleSyntax": true,
-		"noEmit": true,
-		"resolveJsonModule": true,
-		"skipLibCheck": true,
-		"strict": true
+			"#app/*": ["./app/*"],
+			"#tests/*": ["./tests/*"],
+			"@/icon-name": [
+				"./app/components/ui/icons/types.ts",
+				"./types/icon-name.d.ts"
+			]
+		}
 	}
 }

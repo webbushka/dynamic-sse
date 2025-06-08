@@ -71,7 +71,14 @@ export async function getGlobalLeaderboard(limit = 10) {
 	})
 
 	// Group by user and calculate average score
-	const userStats = new Map()
+	type UserStats = {
+		userId: string
+		userName: string
+		totalScore: number
+		gamesPlayed: number
+		bestScore: number
+	}
+	const userStats = new Map<string, UserStats>()
 
 	entries.forEach((entry) => {
 		if (!userStats.has(entry.userId)) {
@@ -84,7 +91,7 @@ export async function getGlobalLeaderboard(limit = 10) {
 			})
 		}
 
-		const stats = userStats.get(entry.userId)
+		const stats = userStats.get(entry.userId)!
 		stats.totalScore += entry.score
 		stats.gamesPlayed += 1
 		stats.bestScore = Math.min(stats.bestScore, entry.score)

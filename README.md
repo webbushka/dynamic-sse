@@ -1,92 +1,54 @@
-# Welcome to React Router!
+<div align="center">
+  <h1 align="center"><a href="https://www.epicweb.dev/epic-stack">The Epic Stack 🚀</a></h1>
+  <strong align="center">
+    Ditch analysis paralysis and start shipping Epic Web apps.
+  </strong>
+  <p>
+    This is an opinionated project starter and reference that allows teams to
+    ship their ideas to production faster and on a more stable foundation based
+    on the experience of <a href="https://kentcdodds.com">Kent C. Dodds</a> and
+    <a href="https://github.com/epicweb-dev/epic-stack/graphs/contributors">contributors</a>.
+  </p>
+</div>
 
-A modern, production-ready template for building full-stack React applications
-using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
-
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
-
-## Getting Started
-
-### Installation
-
-Install the dependencies:
-
-```bash
-npm install
+```sh
+npx epicli
 ```
 
-### Development
+[![The Epic Stack](https://github-production-user-asset-6210df.s3.amazonaws.com/1500684/246885449-1b00286c-aa3d-44b2-9ef2-04f694eb3592.png)](https://www.epicweb.dev/epic-stack)
 
-Start the development server with HMR:
+[The Epic Stack](https://www.epicweb.dev/epic-stack)
 
-```bash
-npm run dev
-```
+<hr />
 
-Your application will be available at `http://localhost:5173`.
+## Watch Kent's Introduction to The Epic Stack
 
-## Building for Production
+[![Epic Stack Talk slide showing Flynn Rider with knives, the text "I've been around and I've got opinions" and Kent speaking in the corner](https://github-production-user-asset-6210df.s3.amazonaws.com/1500684/277818553-47158e68-4efc-43ae-a477-9d1670d4217d.png)](https://www.epicweb.dev/talks/the-epic-stack)
 
-Create a production build:
+["The Epic Stack" by Kent C. Dodds](https://www.epicweb.dev/talks/the-epic-stack)
 
-```bash
-npm run build
-```
+## Docs
 
-## Deployment
+[Read the docs](https://github.com/epicweb-dev/epic-stack/blob/main/docs)
+(please 🙏).
 
-### Docker Deployment
+## Support
 
-To build and run using Docker:
+- 🆘 Join the
+  [discussion on GitHub](https://github.com/epicweb-dev/epic-stack/discussions)
+  and the [KCD Community on Discord](https://kcd.im/discord).
+- 💡 Create an
+  [idea discussion](https://github.com/epicweb-dev/epic-stack/discussions/new?category=ideas)
+  for suggestions.
+- 🐛 Open a [GitHub issue](https://github.com/epicweb-dev/epic-stack/issues) to
+  report a bug.
 
-```bash
-docker build -t my-app .
+## Branding
 
-# Run the container
-docker run -p 3000:3000 my-app
-```
+Want to talk about the Epic Stack in a blog post or talk? Great! Here are some
+assets you can use in your material:
+[EpicWeb.dev/brand](https://epicweb.dev/brand)
 
-The containerized application can be deployed to any platform that supports
-Docker, including:
+## Thanks
 
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is
-production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already
-configured for a simple default starting experience. You can use whatever CSS
-framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+You rock 🪨

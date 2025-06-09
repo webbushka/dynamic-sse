@@ -41,6 +41,6 @@ exec:
     if-candidate: true
 
   # Generate Typed SQL files
-  - cmd: npx prisma generate --sql
+  - cmd: npx prisma generate
 
   - cmd: npm start

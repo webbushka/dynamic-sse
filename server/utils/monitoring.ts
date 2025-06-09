@@ -7,7 +7,7 @@ export function init() {
 		dsn: process.env.SENTRY_DSN,
 		environment: process.env.NODE_ENV,
 		denyUrls: [
-			/\/resources\/healthcheck/,
+			/\/healthcheck/,
 			// TODO: be smarter about the public assets...
 			/\/build\//,
 			/\/favicons\//,
@@ -25,7 +25,7 @@ export function init() {
 		],
 		tracesSampler(samplingContext) {
 			// ignore healthcheck transactions by other services (consul, etc.)
-			if (samplingContext.request?.url?.includes('/resources/healthcheck')) {
+			if (samplingContext.request?.url?.includes('/healthcheck')) {
 				return 0
 			}
 			return process.env.NODE_ENV === 'production' ? 1 : 0

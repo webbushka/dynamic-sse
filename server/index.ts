@@ -108,9 +108,7 @@ morgan.token('url', (req) => {
 app.use(
 	morgan('tiny', {
 		skip: (req, res) =>
-			res.statusCode === 200 &&
-			(req.url?.startsWith('/resources/images') ||
-				req.url?.startsWith('/resources/healthcheck')),
+			res.statusCode === 200 && req.url?.startsWith('/healthcheck'),
 	}),
 )
 

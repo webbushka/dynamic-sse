@@ -32,7 +32,8 @@ describe('submitScore', () => {
 		expect(prisma.leaderboardEntry.upsert).toHaveBeenCalledWith(
 			expect.objectContaining({
 				create: expect.objectContaining({
-					userId: 'user1',
+					userId: '1234',
+					userName: 'user1',
 					problemId: 'prob1',
 					score: 2 * 100 + 5,
 				}),

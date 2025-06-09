@@ -1,14 +1,11 @@
+import { describe, it, expect } from 'vitest'
 import {
 	evaluateEquation,
 	isValidEquation,
 	generateExpression,
 	getFeedback,
 	createGameState,
-	type GameState,
-	type CellFeedback,
 } from './game-logic'
-
-import { describe, it, expect } from 'vitest'
 
 describe('evaluateEquation', () => {
 	it('evaluates valid equations correctly', () => {
@@ -75,8 +72,8 @@ describe('getFeedback', () => {
 
 	it('marks characters in wrong position correctly', () => {
 		const feedback = getFeedback('12+3*4', '21+3*4')
-		expect(feedback[0].status).toBe('wrong-position')
-		expect(feedback[1].status).toBe('wrong-position')
+		expect(feedback[0]?.status).toBe('wrong-position')
+		expect(feedback[1]?.status).toBe('wrong-position')
 		expect(feedback.slice(2).every((f) => f.status === 'correct')).toBe(true)
 	})
 
@@ -87,12 +84,12 @@ describe('getFeedback', () => {
 
 	it('handles mixed correct, wrong-position, and not-used', () => {
 		const feedback = getFeedback('13+2+3', '33+1+2')
-		expect(feedback[0].status).toBe('wrong-position')
-		expect(feedback[1].status).toBe('correct')
-		expect(feedback[2].status).toBe('correct')
-		expect(feedback[3].status).toBe('wrong-position')
-		expect(feedback[4].status).toBe('correct')
-		expect(feedback[5].status).toBe('wrong-position')
+		expect(feedback[0]?.status).toBe('wrong-position')
+		expect(feedback[1]?.status).toBe('correct')
+		expect(feedback[2]?.status).toBe('correct')
+		expect(feedback[3]?.status).toBe('wrong-position')
+		expect(feedback[4]?.status).toBe('correct')
+		expect(feedback[5]?.status).toBe('wrong-position')
 		expect(feedback).toHaveLength(6)
 	})
 })

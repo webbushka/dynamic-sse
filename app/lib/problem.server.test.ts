@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { getTodaysProblem, getAllProblems } from './problem.server'
 import { prisma } from './db.server'
 import { generateExpression } from './game-logic'
+import { getTodaysProblem, getAllProblems } from './problem.server'
 
 vi.mock('./db.server', () => ({
 	prisma: {

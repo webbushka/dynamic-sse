@@ -2,6 +2,8 @@ import { z } from 'zod'
 
 const schema = z.object({
 	NODE_ENV: z.enum(['production', 'development', 'test'] as const),
+	DYNAMIC_ENV_ID: z.string(),
+	TIP_ADDRESS: z.string(),
 	DATABASE_PATH: z.string(),
 	DATABASE_URL: z.string(),
 	SESSION_SECRET: z.string(),

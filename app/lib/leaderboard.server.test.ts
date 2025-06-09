@@ -1,12 +1,11 @@
+import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { prisma } from './db.server'
 import {
 	submitScore,
 	getGlobalLeaderboard,
 	getUserStats,
 	getTodaysLeaderboard,
 } from './leaderboard.server'
-
-import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { prisma } from './db.server'
 
 // Mock Prisma methods
 vi.mock('./db.server', () => ({
@@ -28,7 +27,7 @@ describe('submitScore', () => {
 		;(prisma.leaderboardEntry.findUnique as any).mockResolvedValue(null)
 		;(prisma.leaderboardEntry.upsert as any).mockResolvedValue({ score: 123 })
 
-		const result = await submitScore('user1', 'prob1', 2, 5000)
+		const result = await submitScore('1234', 'user1', 'prob1', 2, 5000)
 
 		expect(prisma.leaderboardEntry.upsert).toHaveBeenCalledWith(
 			expect.objectContaining({
@@ -49,7 +48,7 @@ describe('submitScore', () => {
 		})
 		;(prisma.leaderboardEntry.upsert as any).mockResolvedValue({ score: 205 })
 
-		const result = await submitScore('user1', 'prob1', 2, 5000)
+		const result = await submitScore('1234', 'user1', 'prob1', 2, 5000)
 
 		expect(prisma.leaderboardEntry.upsert).toHaveBeenCalledWith(
 			expect.objectContaining({
@@ -135,7 +134,10 @@ describe('getTodaysLeaderboard', () => {
 			take: 10,
 		})
 
-		expect(result.length).toBe(2)
+		expect(result).toHaveLength(2)
+		if (!result[0] || !result[1]) {
+			throw new Error('Expected two leaderboard entries')
+		}
 		expect(result[0].score).toBeLessThanOrEqual(result[1].score)
 	})
 })

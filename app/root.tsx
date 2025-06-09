@@ -31,6 +31,7 @@ export function loader() {
 	return {
 		ENV: getEnv(),
 		environmentId: process.env.DYNAMIC_ENV_ID || '',
+		tipAddress: process.env.TIP_ADDRESS || '',
 	}
 }
 

@@ -1,5 +1,3 @@
-'use client'
-
 import { DynamicWidget } from '@dynamic-labs/sdk-react-core'
 import { LogOut, User } from 'lucide-react'
 import { Link } from 'react-router'

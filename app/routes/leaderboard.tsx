@@ -1,4 +1,5 @@
 import { data, useLoaderData } from 'react-router'
+import { AddFunds } from '#app/components/leaderboard/add-funds.tsx'
 import { ConnectedWalletStatus } from '#app/components/leaderboard/connected-wallet-status'
 import { GlobalLeaderboard } from '#app/components/leaderboard/global-leaderboard'
 import { LeaderboardHeader } from '#app/components/leaderboard/leaderboard-header'
@@ -24,6 +25,19 @@ export default function Leaderboard() {
 		setShowTipModal,
 		handleTipDeveloper,
 		handleLogOut,
+		showAddFundsModal,
+		setShowAddFundsModal,
+		attemptedTipAmount,
+		walletBalance,
+		walletAddress,
+		handleAddFunds,
+		handleCancelTip,
+		txIsPending,
+		txIsSuccess,
+		txIsError,
+		txError,
+		addIsPending,
+		handleRetry,
 	} = useLeaderboardState()
 
 	return (
@@ -36,6 +50,22 @@ export default function Leaderboard() {
 						handleTipDeveloper={handleTipDeveloper}
 						showTipModal={showTipModal}
 						setShowTipModal={setShowTipModal}
+					/>
+
+					<AddFunds
+						showAddFundsModal={showAddFundsModal}
+						setShowAddFundsModal={setShowAddFundsModal}
+						attemptedTipAmount={attemptedTipAmount}
+						walletBalance={walletBalance}
+						walletAddress={walletAddress}
+						handleAddFunds={handleAddFunds}
+						handleCancelTip={handleCancelTip}
+						txIsPending={txIsPending}
+						txIsSuccess={txIsSuccess}
+						txIsError={txIsError}
+						txError={txError}
+						addIsPending={addIsPending}
+						handleRetry={handleRetry}
 					/>
 
 					{/* User Game History */}

@@ -26,9 +26,22 @@ export function DynamicContextProvider({
 	return environmentId ? (
 		<DynamicProvider
 			settings={{
-				// Find your environment id at https://app.dynamic.xyz/dashboard/developer
 				environmentId,
 				walletConnectors: [EthereumWalletConnectors],
+				overrides: {
+					onrampOptions: () => {
+						return [
+							{
+								id: 'megaETH',
+								url: 'https://testnet.megaeth.com/#2',
+								displayName: 'Mega ETH',
+								iconUrl:
+									'https://images.crunchbase.com/image/upload/c_pad,h_150,w_150,f_auto,b_black,q_auto:eco,dpr_2/837846854d834bdebff6dd1354d32b55',
+								openMode: 'popup',
+							},
+						]
+					},
+				},
 			}}
 		>
 			<WagmiProvider config={config}>

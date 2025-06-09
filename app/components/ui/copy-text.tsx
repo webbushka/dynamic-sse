@@ -5,14 +5,15 @@ import { Button } from '#app/components/ui/button'
 interface CopyTextProps {
 	children: string
 	className?: string
+	text?: string // Optional prop for custom text to copy
 }
 
-export function CopyText({ children, className = '' }: CopyTextProps) {
+export function CopyText({ children, text, className = '' }: CopyTextProps) {
 	const [copied, setCopied] = useState(false)
 
 	const copyToClipboard = async () => {
 		try {
-			await navigator.clipboard.writeText(children)
+			await navigator.clipboard.writeText(text || children)
 			setCopied(true)
 
 			// Reset the copied state after 2 seconds

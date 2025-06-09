@@ -46,27 +46,31 @@ export default function Leaderboard() {
 				<LeaderboardHeader />
 
 				<div className="mx-auto max-w-4xl space-y-6">
-					<TipCard
-						handleTipDeveloper={handleTipDeveloper}
-						showTipModal={showTipModal}
-						setShowTipModal={setShowTipModal}
-					/>
+					{isLoggedIn && (
+						<>
+							<TipCard
+								handleTipDeveloper={handleTipDeveloper}
+								showTipModal={showTipModal}
+								setShowTipModal={setShowTipModal}
+							/>
 
-					<AddFunds
-						showAddFundsModal={showAddFundsModal}
-						setShowAddFundsModal={setShowAddFundsModal}
-						attemptedTipAmount={attemptedTipAmount}
-						walletBalance={walletBalance}
-						walletAddress={walletAddress}
-						handleAddFunds={handleAddFunds}
-						handleCancelTip={handleCancelTip}
-						txIsPending={txIsPending}
-						txIsSuccess={txIsSuccess}
-						txIsError={txIsError}
-						txError={txError}
-						addIsPending={addIsPending}
-						handleRetry={handleRetry}
-					/>
+							<AddFunds
+								showAddFundsModal={showAddFundsModal}
+								setShowAddFundsModal={setShowAddFundsModal}
+								attemptedTipAmount={attemptedTipAmount}
+								walletBalance={walletBalance}
+								walletAddress={walletAddress}
+								handleAddFunds={handleAddFunds}
+								handleCancelTip={handleCancelTip}
+								txIsPending={txIsPending}
+								txIsSuccess={txIsSuccess}
+								txIsError={txIsError}
+								txError={txError}
+								addIsPending={addIsPending}
+								handleRetry={handleRetry}
+							/>
+						</>
+					)}
 
 					{/* User Game History */}
 					{isLoggedIn && userGameResults && (

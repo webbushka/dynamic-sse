@@ -129,7 +129,7 @@ export function AddFunds({
 								<p className="text-xs break-words text-gray-500">
 									Funds will be added to your connected wallet:{' '}
 									<span className="mt-1 flex justify-center sm:mt-0">
-										<CopyText className="font-mono">
+										<CopyText className="font-mono" text={walletAddress}>
 											{obfuscateWalletAddress(walletAddress)}
 										</CopyText>
 									</span>
